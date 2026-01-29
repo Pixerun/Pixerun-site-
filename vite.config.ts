@@ -4,8 +4,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    plugins: [react()],
-    base: './', // Isso faz com que os caminhos sejam relativos
     return {
       server: {
         port: 3000,
