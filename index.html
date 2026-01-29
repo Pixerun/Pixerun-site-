@@ -1,7 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+     <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react",
+    "recharts": "https://esm.sh/recharts@2.15.0?external=react,react-dom",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixerun | Rastreamento de Alta Precisão</title>
@@ -21,7 +32,7 @@
                 200: '#99f6e4',
                 300: '#5eead4',
                 400: '#2dd4bf',
-                500: '#14b8a6',
+                500: '#14b8a6', // Teal primarily
                 600: '#0d9488',
                 700: '#0f766e',
                 800: '#115e59',
@@ -48,8 +59,6 @@
       body {
         background-color: #0a0a0a;
         color: #ffffff;
-        margin: 0;
-        padding: 0;
       }
       .grid-bg {
         background-image: linear-gradient(to right, #262626 1px, transparent 1px),
@@ -59,22 +68,10 @@
         -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
       }
     </style>
-    <!-- Import Map consolidado para evitar múltiplas instâncias do React -->
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react",
-    "recharts": "https://esm.sh/recharts@2.15.0?external=react,react-dom",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/"
-  }
-}
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+ 
 </script>
-    <script type="module" src="./index.tsx"></script>
-  </head>
+</head>
   <body>
     <div id="root"></div>
   </body>
