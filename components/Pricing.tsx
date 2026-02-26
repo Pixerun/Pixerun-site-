@@ -7,23 +7,70 @@ interface PricingTier {
   label: string;
   price: string;
   description: string;
+  checkoutUrl?: string;
 }
 
 const pricingTiers: PricingTier[] = [
-  { label: '5k', price: '69', description: 'Ideal para iniciantes validando o funil.' },
-  { label: '10k', price: '129', description: 'Perfeito para lojas em crescimento constante.' },
-  { label: '20k', price: '230', description: 'Para operações que já escalam com consistência.' },
-  { label: '40k', price: '353', description: 'Foco total em otimização de ROAS agressivo.' },
-  { label: '83k', price: '583', description: 'Alta performance com suporte prioritário.' },
-  { label: '250k', price: '999', description: 'Solução robusta para grandes volumes de dados.' },
-  { label: '750k', price: '1.499', description: 'Escala industrial com processamento dedicado.' },
-  { label: '1m+', price: 'Sob Consulta', description: 'Plano enterprise com infraestrutura exclusiva.' },
+  { 
+    label: '5k', 
+    price: '69', 
+    description: 'Ideal para iniciantes validando o funil.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG01'
+  },
+  { 
+    label: '10k', 
+    price: '129', 
+    description: 'Perfeito para lojas em crescimento constante.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG02'
+  },
+  { 
+    label: '20k', 
+    price: '230', 
+    description: 'Para operações que já escalam com consistência.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG03'
+  },
+  { 
+    label: '40k', 
+    price: '353', 
+    description: 'Foco total em otimização de ROAS agressivo.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG04'
+  },
+  { 
+    label: '83k', 
+    price: '583', 
+    description: 'Alta performance com suporte prioritário.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG05'
+  },
+  { 
+    label: '250k', 
+    price: '999', 
+    description: 'Solução robusta para grandes volumes de dados.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG06'
+  },
+  { 
+    label: '750k', 
+    price: '1.499', 
+    description: 'Escala industrial com processamento dedicado.',
+    checkoutUrl: 'https://buy.stripe.com/test_aFacN51D48zkcCjcWv2VG07'
+  },
+  { 
+    label: '1m+', 
+    price: 'Sob Consulta', 
+    description: 'Plano enterprise com infraestrutura exclusiva.',
+    checkoutUrl: 'mailto:suporte@pixerun.com.br'
+  },
 ];
 
 export const PricingPage: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(1); // Default to 10k
 
   const currentTier = pricingTiers[selectedIndex];
+
+  const handleCheckout = () => {
+    if (currentTier.checkoutUrl) {
+      window.open(currentTier.checkoutUrl, '_blank');
+    }
+  };
 
   return (
     <div className="pt-32 pb-24 bg-dark-900 min-h-screen relative overflow-hidden">
@@ -114,8 +161,9 @@ export const PricingPage: React.FC = () => {
                   <Button 
                     variant="primary" 
                     className="w-full !py-5 rounded-2xl text-lg font-black shadow-none hover:scale-[1.02] transition-transform"
+                    onClick={handleCheckout}
                   >
-                    Marque uma demo
+                    {currentTier.price === 'Sob Consulta' ? 'Falar com Especialista' : 'Começar agora'}
                   </Button>
                 </div>
 
